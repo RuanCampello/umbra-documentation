@@ -11,4 +11,4 @@ struct Journal<File> {
 }
 ```
 
-The [Journal] file implements the [commit] and [rollback] features.  a
+The [Journal] file implements the [commit] and [rollback] features.  a   

@@ -1,6 +1,6 @@
-The [[Journal]] structure is responsible for logging changes to database pages, enabling [[commit]] and [[rollback]], one to save the changes and the last to revert it. We buffer the modified pages in-memory and write them to a journal `File` in chunks.
+The [[Journal]] structure is responsible for logging changes to database pages, enabling [[commit]], which applies the changes to the database and [[rollback]], that enables rolling back changes if something goes wrong. 
 
-The journal `File` stores the snapshots of the database pages before they're modified. This workflow is heavily inspired by [SQLite 2.8.1](https://sqlite.org/src/dir?name=src&ci=590f963b6599e4e2) way of doing thing, but simplified.
+The journal `File` stores the snapshots of the database pages *before* they're modified. This workflow is heavily inspired by [SQLite 2.8.1](https://sqlite.org/src/dir?name=src&ci=590f963b6599e4e2) way of doing thing, but simplified.
 
 ```rust
 struct Journal<File> {  
